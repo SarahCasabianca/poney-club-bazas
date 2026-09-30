@@ -1,0 +1,50 @@
+services:
+  app:
+    build:
+      context: ./docker/php
+    container_name: poneyclub_app
+    ports:
+      - "8080:80"
+    volumes:
+      - ./symfony:/var/www/html
+    depends_on:
+      - database
+    networks:
+      - poneyclub
+
+  database:
+    image: mysql:8.4
+    container_name: poneyclub_db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: poneyclub
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: poneyclub
+      MYSQL_PASSWORD: poneyclub
+    ports:
+      - "3307:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - poneyclub
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: poneyclub_pma
+    restart: unless-stopped
+    environment:
+      PMA_HOST: database
+      PMA_USER: root
+      PMA_PASSWORD: root
+    ports:
+      - "8081:80"
+    depends_on:
+      - database
+    networks:
+      - poneyclub
+
+volumes:
+  db_data:
+
+networks:
+  poneyclub:
