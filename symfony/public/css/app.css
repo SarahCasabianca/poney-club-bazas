@@ -82,3 +82,24 @@ h4,
     padding: 26px 0;
     font-size: 0.85rem;
 }
+
+.horse-card {
+    padding: 0;
+    overflow: hidden;
+}
+.horse-card h2,
+.horse-card p {
+    padding: 0 22px;
+}
+.horse-card p:last-child {
+    padding-bottom: 22px;
+}
+.horse-photo {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+}
+.horse-photo--empty {
+    background: var(--tan-100);
+}

@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Notre cavalerie – Poney Club de Bazas{% endblock %}
+
+{% block body %}
+    <div class="title-bubble mb-4">
+        <h1 class="h3 m-0">Notre cavalerie</h1>
+    </div>
+
+    <div class="row g-4">
+        {% for horse in horses %}
+            <div class="col-12 col-md-6 col-lg-4">
+                <article class="card-site horse-card">
+                    {% if horse.image %}
+                        <img src="/{{ horse.image.path }}" alt="{{ horse.name }}" class="horse-photo" loading="lazy">
+                    {% else %}
+                        <div class="horse-photo horse-photo--empty" role="img" aria-label="Photo à venir"></div>
+                    {% endif %}
+                    <h2 class="h5 mt-3 mb-1">{{ horse.name }}</h2>
+                    <p class="text-muted small m-0">{{ horse.breed }}{% if horse.coat %} · {{ horse.coat }}{% endif %}</p>
+                </article>
+            </div>
+        {% else %}
+            <div class="col-12"><div class="card-site">Aucun cheval à présenter pour le moment.</div></div>
+        {% endfor %}
+    </div>
+{% endblock %}

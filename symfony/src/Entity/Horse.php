@@ -35,6 +35,9 @@ class Horse
     #[ORM\Column(length: 50, nullable: true)]
     private ?string $status = null;
 
+    #[ORM\OneToOne(mappedBy: 'horse')]
+    private ?HorseImage $image = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -122,5 +125,10 @@ class Horse
         $this->status = $status;
 
         return $this;
+    }
+
+    public function getImage(): ?HorseImage
+    {
+        return $this->image;
     }
 }

@@ -16,6 +16,19 @@ class HorseRepository extends ServiceEntityRepository
         parent::__construct($registry, Horse::class);
     }
 
+    /**
+     * @return Horse[]
+    */
+    public function findAllWithImage(): array
+    {
+        return $this->createQueryBuilder('h')
+            ->leftJoin('h.image', 'i')
+            ->addSelect('i')
+            ->orderBy('h.name', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
+
 //    /**
 //     * @return Horse[] Returns an array of Horse objects
 //     */

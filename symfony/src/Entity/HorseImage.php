@@ -16,7 +16,7 @@ class HorseImage
     #[ORM\Column(length: 255)]
     private ?string $path = null;
 
-    #[ORM\ManyToOne]
+    #[ORM\OneToOne(inversedBy: 'image')]
     #[ORM\JoinColumn(nullable: false, unique: true, onDelete: 'CASCADE')]
     private ?Horse $horse = null;
 
