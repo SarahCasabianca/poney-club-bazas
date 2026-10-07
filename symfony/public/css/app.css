@@ -1,0 +1,84 @@
+:root {
+    --brown-900: #3b2a1e;
+    --brown-700: #5a4636;
+    --brown-500: #7a6c5d;
+    --green-700: #4f6349;
+    --green-800: #3e4f3a;
+    --tan-300: #d9c7a8;
+    --tan-100: #f3ecdd;
+}
+
+body {
+    font-family: "Mulish", system-ui, sans-serif;
+    color: var(--brown-900);
+    background-color: var(
+        --site-bg
+    ); /* personalised color from base.html.twig */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+main {
+    flex: 1;
+}
+
+h1,
+h2,
+h3,
+h4,
+.navbar-brand {
+    font-family: "Bitter", Georgia, serif;
+    color: var(--brown-900);
+}
+
+/* En-tête */
+.site-header .navbar {
+    background: #fff;
+    border-bottom: 1px solid var(--tan-300);
+}
+.navbar-brand {
+    font-weight: 700;
+}
+.nav-link {
+    font-weight: 700;
+    color: var(--brown-700);
+}
+.nav-link.active {
+    color: var(--green-700);
+    border-bottom: 2px solid var(--green-700);
+}
+
+/* Cartes blanches : tout texte posé sur le fond personnalisable vit dedans */
+.card-site,
+.title-bubble {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 14px rgba(59, 42, 30, 0.09);
+    padding: 22px;
+    height: 100%;
+}
+.title-bubble {
+    height: auto;
+    padding: 14px 22px;
+}
+
+/* Boutons */
+.btn-site {
+    background: var(--green-700);
+    color: #fff;
+    font-weight: 700;
+    border-radius: 8px;
+    padding: 12px 24px;
+}
+.btn-site:hover {
+    background: var(--green-800);
+    color: #fff;
+}
+
+/* Pied de page */
+.site-footer {
+    background: var(--brown-900);
+    color: var(--tan-100);
+    padding: 26px 0;
+    font-size: 0.85rem;
+}

@@ -1,0 +1,28 @@
+{# jSingle {} for instructions, for displaying {{  }}  #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil – Poney Club de Bazas{% endblock %}
+
+{# Default text if block is not set #}
+{% block body %}
+    <div class="title-bubble mb-4">
+        <h1 class="h3 m-0">Bienvenue au Poney Club de Bazas</h1>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-12 col-md-6">
+            <div class="card-site">
+                <h2 class="h5">Le club</h2>
+                <p>Texte de présentation à venir.</p>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="card-site">
+                <h2 class="h5">Nos cours</h2>
+                <p>Texte de présentation à venir.</p>
+                <a href="#" class="btn btn-site">Voir les tarifs</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

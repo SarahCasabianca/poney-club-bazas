@@ -1,0 +1,29 @@
+
+{# Varibale route, to get the route name of the displayed page. Used to put the active page link in green #}
+{% set route = app.request.attributes.get('_route') %}
+<header class="site-header">
+    <nav class="navbar navbar-expand-md">
+        <div class="container">
+            <a class="navbar-brand" href="{{ path('app_home') }}">Poney Club de Bazas</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#menu" aria-controls="menu"
+                    aria-expanded="false" aria-label="Ouvrir le menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link {{ route == 'app_home' ? 'active' : '' }}" href="{{ path('app_home') }}">Accueil</a>
+                    </li>
+                    {# Other links will go the path('...') when they exist #}
+                    <li class="nav-item"><a class="nav-link" href="#">Cavalerie</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Tarifs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>

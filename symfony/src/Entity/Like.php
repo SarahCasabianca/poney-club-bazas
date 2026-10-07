@@ -30,12 +30,12 @@ class Like
         return $this->id;
     }
 
-    public function getSessionId(): ?int
+    public function getSessionId(): ?string
     {
         return $this->sessionId;
     }
 
-    public function setSessionId(int $sessionId): static
+    public function setSessionId(string $sessionId): static
     {
         $this->sessionId = $sessionId;
 
