@@ -12,6 +12,8 @@ use App\Entity\Horse;
 use App\Entity\Like;
 use App\Entity\Rate;
 use App\Entity\RateCategory;
+use App\Entity\HorseImage;
+use Symfony\Component\String\Slugger\AsciiSlugger;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
@@ -96,6 +98,10 @@ class AppFixtures extends Fixture
                 ->setSize($size)
                 ->setStatus($status);
             $manager->persist($horse);
+            $image = (new HorseImage())
+                ->setHorse($horse)
+                ->setPath('images/horses/' . (new AsciiSlugger())->slug($name)->lower() . '.jpg');
+            $manager->persist($image);
             $horses[] = $horse;
         }
 
