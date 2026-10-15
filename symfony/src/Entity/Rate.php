@@ -26,7 +26,7 @@ class Rate
     #[ORM\Column]
     private ?int $position = null;
 
-    #[ORM\ManyToOne]
+    #[ORM\ManyToOne(inversedBy: 'rates')]
     #[ORM\JoinColumn(nullable: false, onDelete: 'RESTRICT')]
     private ?RateCategory $category = null;
 

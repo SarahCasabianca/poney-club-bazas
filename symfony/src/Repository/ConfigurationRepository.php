@@ -16,6 +16,13 @@ class ConfigurationRepository extends ServiceEntityRepository
         parent::__construct($registry, Configuration::class);
     }
 
+    public function getValue(string $name, ?string $default = null): ?string
+    {
+        $configuration = $this->findOneBy(['name' => $name]);
+    
+        return $configuration?->getValue() ?? $default;
+    }
+
 //    /**
 //     * @return Configuration[] Returns an array of Configuration objects
 //     */

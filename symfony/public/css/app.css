@@ -103,3 +103,44 @@ h4,
 .horse-photo--empty {
     background: var(--tan-100);
 }
+
+.badge-season {
+    background: var(--tan-100);
+    border: 1.5px solid var(--tan-300);
+    color: var(--brown-700);
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.rate-card {
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+}
+.rate-name {
+    font-weight: 700;
+}
+.rate-detail {
+    font-size: 0.8rem;
+    color: var(--brown-500);
+    margin-top: 2px;
+}
+.rate-price {
+    font-family: "Bitter", Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--green-700);
+    white-space: nowrap;
+}
+
+.card-note {
+    height: auto;
+    font-size: 0.85rem;
+    color: var(--brown-700);
+    line-height: 1.55;
+}

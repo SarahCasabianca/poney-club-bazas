@@ -5,6 +5,8 @@ namespace App\Entity;
 use App\Repository\RateCategoryRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 #[ORM\Entity(repositoryClass: RateCategoryRepository::class)]
 class RateCategory
@@ -22,6 +24,25 @@ class RateCategory
 
     #[ORM\Column]
     private ?int $position = null;
+    /**
+    * @var Collection<int, Rate>
+    */
+    #[ORM\OneToMany(targetEntity: Rate::class, mappedBy: 'category')]
+    #[ORM\OrderBy(['position' => 'ASC'])]
+    private Collection $rates;
+    
+    public function __construct()
+    {
+        $this->rates = new ArrayCollection();
+    }
+    
+    /**
+     * @return Collection<int, Rate>
+     */
+    public function getRates(): Collection
+    {
+        return $this->rates;
+    }
 
     public function getId(): ?int
     {

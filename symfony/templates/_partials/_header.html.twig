@@ -19,7 +19,7 @@
                     </li>
                     {# Other links will go the path('...') when they exist #}
                     <li class="nav-item"><a class="nav-link {{ route == 'app_cavalerie' ? 'active' : '' }}" href="{{ path('app_cavalerie') }}">Cavalerie</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Tarifs</a></li>
+                    <li class="nav-item"><a class="nav-link {{ route == 'app_tarifs' ? 'active' : '' }}" href="{{ path('app_tarifs') }}">Tarifs</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
                 </ul>

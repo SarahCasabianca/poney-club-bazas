@@ -16,6 +16,20 @@ class RateCategoryRepository extends ServiceEntityRepository
         parent::__construct($registry, RateCategory::class);
     }
 
+    /**
+     * @return RateCategory[]
+     */
+    public function findAllWithRates(): array
+    {
+        return $this->createQueryBuilder('c')
+            ->leftJoin('c.rates', 'r')
+            ->addSelect('r')
+            ->orderBy('c.position', 'ASC')
+            ->addOrderBy('r.position', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
+
 //    /**
 //     * @return RateCategory[] Returns an array of RateCategory objects
 //     */
